@@ -10,7 +10,7 @@ const pool = require("../../config/conn");
       FROM products as pr JOIN purchases as ps ON pr.id = ps.product_id and 
       pr.registeredOn>=$1;
   `
-    pool.query(query,[date1].at, (error, results) => {
+    pool.query(query,[date1], (error, results) => {
       if (error) {
         const er = {
           status : false,
@@ -29,7 +29,7 @@ const pool = require("../../config/conn");
       FROM products as pr JOIN purchases as ps ON pr.id = ps.product_id and 
       pr.registeredOn>=$1;
   `
-      pool.query(query,[date2].at, (error, results) => {
+      pool.query(query,[date2], (error, results) => {
         if (error) {
           const er = {
             status : false,
@@ -43,12 +43,13 @@ const pool = require("../../config/conn");
    
   }
   else if (date1!="" && date1!=undefined && date2!="" && date2!=undefined){
+
     query=`SELECT pr.id,pr.name, pr.description,pr.quantity_on_stock as quantityOnStock,pr.registeredOn,pr.lastUpdatedOn,
       ps.id,ps.product_id, ps.quantity,ps.price_per_piece,ps.purchasedOn
       FROM products as pr JOIN purchases as ps ON pr.id = ps.product_id and 
       pr.registeredOn between $1 and $2;
   `
-      pool.query(query,[date1,date2].at, (error, results) => {
+      pool.query(query,[date1,date2], (error, results) => {
         if (error) {
           const er = {
             status : false,

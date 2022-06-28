@@ -57,35 +57,9 @@ const pool = require("../../config/conn");
     })
   }
   
-  // const updateProducts = (request, response) => {
-  //   const id = parseInt(request.params.id)
-  //   const { name, email } = request.body
-  
-  //   pool.query(
-  //     queries.updateStudent,
-  //     [name, email, id],
-  //     (error, results) => {
-  //       if (error) {
-  //         throw error
-  //       }
-  //       response.status(200).send(`Students modified with ID: ${id}`)
-  //     }
-  //   )
-  // }
-  
-  // const deleteStudent = (request, response) => {
-  //   const id = parseInt(request.params.id)
-  
-  //   pool.query(queries.deleteStudent, [id], (error, results) => {
-  //     if (error) {
-  //       throw error
-  //     }
-  //     response.status(200).send(`Student deleted with ID: ${id}`)
-  //   })
-  // }
-  
   module.exports = {
     getProducts,
     createProduct ,
+    getProductById
     
   }
