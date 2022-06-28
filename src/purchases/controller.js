@@ -38,7 +38,7 @@ const pool = require("../../config/conn");
             return response.status(400).json(er)
 
         }
-        response.status(200).json(results.rows)
+        return response.status(200).json(results.rows)
       })
    
   }
@@ -58,7 +58,7 @@ const pool = require("../../config/conn");
             return response.status(400).json(er)
 
         }
-        response.status(200).json(results.rows)
+       return response.status(200).json(results.rows)
       })
   }
 
@@ -75,7 +75,7 @@ const pool = require("../../config/conn");
           return response.status(400).json(er)
 
       }
-      response.status(200).json(results.rows)
+      return response.status(200).json(results.rows)
     })
   }
   
@@ -97,7 +97,7 @@ const pool = require("../../config/conn");
         status : true,
         message : "Purchase created successfully!"
         }
-      response.status(201).json(message)
+      return response.status(201).json(message)
     })
   }
   
